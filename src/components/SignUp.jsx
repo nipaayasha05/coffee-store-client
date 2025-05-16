@@ -11,14 +11,15 @@ const SignUp = () => {
     const form = e.target;
     const formData = new FormData(form);
 
-    const { email, password, ...userProfile } = Object.fromEntries(
+    const { email, password, ...restFormData } = Object.fromEntries(
       formData.entries()
     );
+
     // console.log(newUser)
 
     // const email = formData.get("email");
     // const password = formData.get("password");
-    console.log(email, password, userProfile);
+    console.log(email, password);
 
     // const newUser=Object.fromEntries(formData.entries())
 
@@ -27,8 +28,15 @@ const SignUp = () => {
       .then((result) => {
         console.log(result.user);
 
+        const userProfile = {
+          email,
+          ...restFormData,
+          creationTime: result.user?.metadata?.creationTime,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
+        };
+
         // save profile info in the db
-        fetch("http://localhost:3000/users", {
+        fetch("https://coffee-store-server-two-self.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
