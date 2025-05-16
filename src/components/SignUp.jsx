@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUser } = use(AuthContext);
-  console.log(createUser);
+  // console.log(createUser);
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -19,14 +19,14 @@ const SignUp = () => {
 
     // const email = formData.get("email");
     // const password = formData.get("password");
-    console.log(email, password);
+    // console.log(email, password);
 
     // const newUser=Object.fromEntries(formData.entries())
 
     // create user in the firebase
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
 
         const userProfile = {
           email,
@@ -58,7 +58,7 @@ const SignUp = () => {
           });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 

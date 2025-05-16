@@ -6,7 +6,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   const { _id, name, price, quantity, photo } = coffee;
 
   const handleDelete = (_id) => {
-    console.log(_id);
+    // console.log(_id);
 
     Swal.fire({
       title: "Are you sure?",
@@ -17,7 +17,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      console.log(result.isConfirmed);
+      // console.log(result.isConfirmed);
       if (result.isConfirmed) {
         // start deleting the coffee
         fetch(

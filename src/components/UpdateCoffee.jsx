@@ -11,7 +11,7 @@ const UpdateCoffee = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedCoffee = Object.fromEntries(formData.entries());
-    console.log(updatedCoffee);
+    // console.log(updatedCoffee);
 
     // send updated coffee to the db
     fetch(`https://coffee-store-server-two-self.vercel.app/coffees/${_id}`, {

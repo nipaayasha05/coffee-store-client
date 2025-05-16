@@ -9,13 +9,13 @@ const SignIn = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     // firebase signin send
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         const signInInfo = {
           email,
           lastSignInTime: result.user?.metadata?.lastSignInTime,
@@ -34,7 +34,7 @@ const SignIn = () => {
           });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
   return (
